@@ -39,24 +39,14 @@
       "id": "cmdFitCanvas",
       "label": {
         "default": "Fit to Canvas (No Crop)"
-      },
-      "shortcut": {
-        "mac": "Cmd+Opt+Q",
-        "win": "Ctrl+Alt+Q"
-      },
-      "title": "Fit to Canvas (No Crop)"
+      }
     },
     {
       "type": "command",
       "id": "cmdFillCanvas",
       "label": {
         "default": "Fill Canvas (Crop)"
-      },
-      "shortcut": {
-        "mac": "Cmd+Opt+Y",
-        "win": "Ctrl+Alt+Y"
-      },
-      "title": "Fill Canvas (Crop)"
+      }
     }
   ],
   "icons": [
