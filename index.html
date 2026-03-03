@@ -4,9 +4,9 @@
 <head>
     <style>
         :root {
-            --panel-padding: 20px;
-            --section-gap: 24px;
-            --item-gap: 12px;
+            --panel-padding: 24px;
+            --section-gap: 28px;
+            --item-gap: 16px;
         }
 
         body {
@@ -34,13 +34,13 @@
             color: var(--uxp-host-text-color-secondary, #999);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         .section-subtitle {
             font-size: 11px;
             color: var(--uxp-host-text-color-secondary, #999);
-            margin-bottom: 2px;
+            margin-bottom: 6px;
         }
 
         sp-button {
@@ -50,17 +50,13 @@
         .row {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
         }
 
         .row-spaced {
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }
-
-        .half-btn {
-            width: calc(50% - 6px);
         }
 
         sp-textfield {
@@ -125,12 +121,10 @@
 
     <div class="section">
         <div class="section-title" data-l10n="quickExport">Quick Export</div>
-        <div class="row-spaced">
-            <sp-button id="btnExportLayer" variant="secondary" class="half-btn" data-l10n="layerAsPng">Layer as
-                PNG</sp-button>
-            <sp-button id="btnExportDoc" variant="secondary" class="half-btn" data-l10n="docAsPng">Doc as
-                PNG</sp-button>
-        </div>
+        <sp-button id="btnExportLayer" variant="secondary" data-l10n="layerAsPng">Layer as
+            PNG</sp-button>
+        <sp-button id="btnExportDoc" variant="secondary" data-l10n="docAsPng">Doc as
+            PNG</sp-button>
     </div>
 
     <script src="index.js"></script>
