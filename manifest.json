@@ -41,8 +41,8 @@
         "default": "Fit to Canvas (No Crop)"
       },
       "shortcut": {
-        "mac": "Cmd+Ctrl+Y",
-        "win": "Ctrl+Alt+Y"
+        "mac": "Cmd+Opt+Q",
+        "win": "Ctrl+Alt+Q"
       }
     },
     {
@@ -52,8 +52,8 @@
         "default": "Fill Canvas (Crop)"
       },
       "shortcut": {
-        "mac": "Cmd+Ctrl+U",
-        "win": "Ctrl+Alt+U"
+        "mac": "Cmd+Opt+Y",
+        "win": "Ctrl+Alt+Y"
       }
     }
   ],
