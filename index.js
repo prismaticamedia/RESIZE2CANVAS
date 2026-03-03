@@ -75,8 +75,12 @@ entrypoints.setup({
         }
     },
     commands: {
-        cmdFitCanvas: () => handleResize(false),
-        cmdFillCanvas: () => handleResize(true)
+        cmdFitCanvas: {
+            run: () => handleResize(false)
+        },
+        cmdFillCanvas: {
+            run: () => handleResize(true)
+        }
     }
 });
 
