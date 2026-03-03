@@ -164,6 +164,25 @@ function initUI() {
     }
 }
 
+function initKeyboardShortcuts() {
+    window.addEventListener("keydown", (event) => {
+        // Cmd/Ctrl + Opt/Alt + Q -> Fit to Canvas
+        if ((event.metaKey || event.ctrlKey) && event.altKey && (event.key === 'q' || event.key === 'Q')) {
+            event.preventDefault();
+            handleResize(false);
+        }
+
+        // Cmd/Ctrl + Opt/Alt + Y -> Fill Canvas
+        if ((event.metaKey || event.ctrlKey) && event.altKey && (event.key === 'y' || event.key === 'Y')) {
+            event.preventDefault();
+            handleResize(true);
+        }
+    });
+}
+initKeyboardShortcuts();
+
+initUI();
+
 const { entrypoints } = require("uxp");
 entrypoints.setup({
     panels: {
