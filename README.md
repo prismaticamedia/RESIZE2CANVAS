@@ -9,4 +9,4 @@ A lightweight Adobe UXP panel plugin that adds quick resizing and formatting sho
 * **Quick Exports:** One-click shortcuts to rapidly export the active layer or doc as a transparent PNG.
 
 ## Usage
-Add to Photoshop using the UXP Developer Tool. 
+Add to Photoshop using the UXP Developer Tool.
