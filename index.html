@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: transparent;
+        }
+
+        sp-button {
+            width: 100%;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <sp-button id="btnFit" variant="primary">Fit to Canvas (No Crop)</sp-button>
+    <sp-button id="btnFill" variant="primary">Fill Canvas (Crop)</sp-button>
+
+    <sp-divider size="S"></sp-divider>
+
+    <div class="row">
+        <sp-checkbox id="chkAutoRotate">Auto Rotate Picture</sp-checkbox>
+    </div>
+
+    <sp-divider size="S"></sp-divider>
+
+    <sp-button id="btnNewDoc" variant="secondary">Send to New Doc...</sp-button>
+
+    <dialog id="dlgNewDoc">
+        <form method="dialog" style="display: flex; flex-direction: column; gap: 12px; width: 300px;">
+            <sp-heading size="S">New Document Size</sp-heading>
+
+            <sp-dropdown id="drpDialogSize" style="width: 100%;">
+                <sp-menu slot="options">
+                    <sp-menu-item value="720">1280 x 720 (720p)</sp-menu-item>
+                    <sp-menu-item value="1080" selected>1920 x 1080 (1080p)</sp-menu-item>
+                    <sp-menu-item value="1440">2560 x 1440 (2K)</sp-menu-item>
+                    <sp-menu-item value="2160">3840 x 2160 (4K)</sp-menu-item>
+                    <sp-menu-item value="custom">Custom...</sp-menu-item>
+                </sp-menu>
+            </sp-dropdown>
+
+            <div id="divCustomSize" class="row"
+                style="display: none; align-items: center; justify-content: space-between;">
+                <sp-textfield id="txtWidth" type="number" value="1920" style="width: 45%;"></sp-textfield>
+                <span> x </span>
+                <sp-textfield id="txtHeight" type="number" value="1080" style="width: 45%;"></sp-textfield>
+            </div>
+
+            <div class="row" style="justify-content: flex-end; margin-top: 12px;">
+                <sp-button id="btnCancel" variant="secondary" quiet>Cancel</sp-button>
+                <sp-button id="btnCreate" variant="cta">Create</sp-button>
+            </div>
+        </form>
+    </dialog>
+
+    <sp-divider size="S"></sp-divider>
+
+    <div class="row">
+        <sp-button id="btnExportLayer" variant="cta" style="width: 50%;">Export Layer PNG</sp-button>
+        <sp-button id="btnExportDoc" variant="cta" style="width: 50%;">Export Doc PNG</sp-button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
