@@ -1,7 +1,7 @@
 {
   "id": "com.example.resizetocanvas",
   "name": "Resize to Canvas",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.html",
   "host": [
     {
@@ -43,7 +43,8 @@
       "shortcut": {
         "mac": "Cmd+Opt+Q",
         "win": "Ctrl+Alt+Q"
-      }
+      },
+      "title": "Fit to Canvas (No Crop)"
     },
     {
       "type": "command",
@@ -54,7 +55,8 @@
       "shortcut": {
         "mac": "Cmd+Opt+Y",
         "win": "Ctrl+Alt+Y"
-      }
+      },
+      "title": "Fill Canvas (Crop)"
     }
   ],
   "icons": [
