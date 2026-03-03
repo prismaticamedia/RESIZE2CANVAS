@@ -4,9 +4,9 @@
 <head>
     <style>
         :root {
-            --panel-padding: 16px;
-            --section-gap: 16px;
-            --item-gap: 8px;
+            --panel-padding: 20px;
+            --section-gap: 24px;
+            --item-gap: 12px;
         }
 
         body {
@@ -34,6 +34,12 @@
             color: var(--uxp-host-text-color-secondary, #999);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .section-subtitle {
+            font-size: 11px;
+            color: var(--uxp-host-text-color-secondary, #999);
             margin-bottom: 2px;
         }
 
@@ -44,7 +50,7 @@
         .row {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
         .row-spaced {
@@ -54,7 +60,7 @@
         }
 
         .half-btn {
-            width: calc(50% - 4px);
+            width: calc(50% - 6px);
         }
 
         sp-textfield {
@@ -65,27 +71,28 @@
 
 <body>
     <div class="section">
-        <div class="section-title">Canvas Resize</div>
-        <sp-button id="btnFit" variant="primary">Fit to Canvas (No Crop)</sp-button>
-        <sp-button id="btnFill" variant="primary">Fill Canvas (Crop)</sp-button>
+        <div class="section-title" data-l10n="canvasResize">Canvas Resize</div>
+        <div class="section-subtitle" data-l10n="selectLayerInstruction">Select a layer</div>
+        <sp-button id="btnFit" variant="primary" data-l10n="fitToCanvas">Fit to Canvas (No Crop)</sp-button>
+        <sp-button id="btnFill" variant="primary" data-l10n="fillCanvas">Fill Canvas (Crop)</sp-button>
     </div>
 
     <div class="section">
-        <div class="section-title">Options</div>
-        <sp-checkbox id="chkAutoRotate">Auto Rotate Picture</sp-checkbox>
+        <div class="section-title" data-l10n="options">Options</div>
+        <sp-checkbox id="chkAutoRotate" data-l10n="autoRotate">Auto Rotate Picture</sp-checkbox>
     </div>
 
     <sp-divider size="S"></sp-divider>
 
     <div class="section">
-        <div class="section-title">Artboard Extraction</div>
-        <sp-button id="btnNewDoc" variant="secondary">Send to New Doc...</sp-button>
+        <div class="section-title" data-l10n="artboardExtraction">Artboard Extraction</div>
+        <sp-button id="btnNewDoc" variant="secondary" data-l10n="sendToNewDoc">Send to New Doc...</sp-button>
     </div>
 
     <dialog id="dlgNewDoc">
         <form method="dialog"
             style="display: flex; flex-direction: column; gap: var(--section-gap); width: 280px; padding: 4px;">
-            <sp-heading size="S">New Document Size</sp-heading>
+            <sp-heading size="S" data-l10n="newDocSize">New Document Size</sp-heading>
 
             <sp-dropdown id="drpDialogSize" style="width: 100%;">
                 <sp-menu slot="options">
@@ -93,23 +100,23 @@
                     <sp-menu-item value="1080" selected>1920 x 1080 (1080p)</sp-menu-item>
                     <sp-menu-item value="1440">2560 x 1440 (2K)</sp-menu-item>
                     <sp-menu-item value="2160">3840 x 2160 (4K)</sp-menu-item>
-                    <sp-menu-item value="custom">Custom...</sp-menu-item>
+                    <sp-menu-item value="custom" data-l10n="custom">Custom...</sp-menu-item>
                 </sp-menu>
             </sp-dropdown>
 
             <div id="divCustomSize" class="row-spaced" style="display: none;">
                 <sp-textfield id="txtWidth" type="number" value="1920">
-                    <sp-label slot="label">Width (px)</sp-label>
+                    <sp-label slot="label" data-l10n="width">Width (px)</sp-label>
                 </sp-textfield>
                 <div style="margin-top: 14px;">&times;</div>
                 <sp-textfield id="txtHeight" type="number" value="1080">
-                    <sp-label slot="label">Height (px)</sp-label>
+                    <sp-label slot="label" data-l10n="height">Height (px)</sp-label>
                 </sp-textfield>
             </div>
 
             <div class="row" style="justify-content: flex-end; margin-top: 8px;">
-                <sp-button id="btnCancel" variant="secondary" quiet>Cancel</sp-button>
-                <sp-button id="btnCreate" variant="cta">Create</sp-button>
+                <sp-button id="btnCancel" variant="secondary" quiet data-l10n="cancel">Cancel</sp-button>
+                <sp-button id="btnCreate" variant="cta" data-l10n="create">Create</sp-button>
             </div>
         </form>
     </dialog>
@@ -117,10 +124,12 @@
     <sp-divider size="S"></sp-divider>
 
     <div class="section">
-        <div class="section-title">Quick Export</div>
+        <div class="section-title" data-l10n="quickExport">Quick Export</div>
         <div class="row-spaced">
-            <sp-button id="btnExportLayer" variant="secondary" class="half-btn">Layer as PNG</sp-button>
-            <sp-button id="btnExportDoc" variant="secondary" class="half-btn">Doc as PNG</sp-button>
+            <sp-button id="btnExportLayer" variant="secondary" class="half-btn" data-l10n="layerAsPng">Layer as
+                PNG</sp-button>
+            <sp-button id="btnExportDoc" variant="secondary" class="half-btn" data-l10n="docAsPng">Doc as
+                PNG</sp-button>
         </div>
     </div>
 

@@ -3,8 +3,107 @@ const core = require("photoshop").core;
 const { executeAsModal } = require("photoshop").core;
 const fs = require("uxp").storage.localFileSystem;
 
+const locales = {
+    en: {
+        canvasResize: "Canvas Resize",
+        selectLayerInstruction: "Select a layer",
+        fitToCanvas: "Fit to Canvas (No Crop)",
+        fillCanvas: "Fill Canvas (Crop)",
+        options: "Options",
+        autoRotate: "Auto Rotate Picture",
+        artboardExtraction: "Artboard Extraction",
+        sendToNewDoc: "Send to New Doc...",
+        newDocSize: "New Document Size",
+        custom: "Custom...",
+        width: "Width (px)",
+        height: "Height (px)",
+        cancel: "Cancel",
+        create: "Create",
+        quickExport: "Quick Export",
+        layerAsPng: "Layer as PNG",
+        docAsPng: "Doc as PNG"
+    },
+    es: {
+        canvasResize: "Redimensionar Lienzo",
+        selectLayerInstruction: "Selecciona una capa",
+        fitToCanvas: "Ajustar al Lienzo (Sin Recorte)",
+        fillCanvas: "Llenar Lienzo (Recortar)",
+        options: "Opciones",
+        autoRotate: "Auto Rotar Imagen",
+        artboardExtraction: "Extracción de Mesa de Trabajo",
+        sendToNewDoc: "Enviar a Nuevo Doc...",
+        newDocSize: "Tamaño del Nuevo Doc",
+        custom: "Personalizado...",
+        width: "Ancho (px)",
+        height: "Alto (px)",
+        cancel: "Cancelar",
+        create: "Crear",
+        quickExport: "Exportación Rápida",
+        layerAsPng: "Capa como PNG",
+        docAsPng: "Doc como PNG"
+    },
+    fr: {
+        canvasResize: "Redimensionner le Canevas",
+        selectLayerInstruction: "Sélectionnez un calque",
+        fitToCanvas: "Ajuster au Canevas (Sans Recadrage)",
+        fillCanvas: "Remplir le Canevas (Recadrer)",
+        options: "Options",
+        autoRotate: "Rotation Auto de l'Image",
+        artboardExtraction: "Extraction de Plan de Travail",
+        sendToNewDoc: "Envoyer vers Nouveau Doc...",
+        newDocSize: "Taille du Nouveau Doc",
+        custom: "Personnalisé...",
+        width: "Largeur (px)",
+        height: "Hauteur (px)",
+        cancel: "Annuler",
+        create: "Créer",
+        quickExport: "Exportation Rapide",
+        layerAsPng: "Calque en PNG",
+        docAsPng: "Doc en PNG"
+    },
+    de: {
+        canvasResize: "Leinwandgröße",
+        selectLayerInstruction: "Wähle eine Ebene",
+        fitToCanvas: "An Leinwand anpassen",
+        fillCanvas: "Leinwand füllen (Zuschneiden)",
+        options: "Optionen",
+        autoRotate: "Bild automatisch drehen",
+        artboardExtraction: "Zeichenflächen-Extraktion",
+        sendToNewDoc: "An neues Dok. senden...",
+        newDocSize: "Neue Dok.-Größe",
+        custom: "Benutzerdefiniert...",
+        width: "Breite (px)",
+        height: "Höhe (px)",
+        cancel: "Abbrechen",
+        create: "Erstellen",
+        quickExport: "Schnellexport",
+        layerAsPng: "Ebene als PNG",
+        docAsPng: "Dok als PNG"
+    }
+};
+
+function applyLocalization() {
+    try {
+        const langCode = app.uiLanguage || app.host.uiLocale || navigator.language || "en";
+        const baseLang = langCode.split("-")[0].split("_")[0].toLowerCase();
+        const dict = locales[baseLang] || locales["en"];
+
+        const elements = document.querySelectorAll("[data-l10n]");
+        elements.forEach(el => {
+            const key = el.getAttribute("data-l10n");
+            if (dict[key]) {
+                el.innerText = dict[key];
+            }
+        });
+    } catch (e) {
+        console.error("Localization failed", e);
+    }
+}
+
 function initUI() {
     try {
+        applyLocalization();
+
         const btnFit = document.getElementById("btnFit");
         const btnFill = document.getElementById("btnFill");
         const btnNewDoc = document.getElementById("btnNewDoc");
