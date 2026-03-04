@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.7] - 2026-03-03
+### Fixed
+- Fixed missing plugin panel icons by properly aligning to Adobe UXP's `@1x` and `@2x` file naming conventions.
+
+
 ## [1.0.6] - 2026-03-03
 ### Fixed
 - Replaced deprecated `sp-dropdown` with modern `sp-picker` to resolve Adobe UXP warnings in the debugger.
