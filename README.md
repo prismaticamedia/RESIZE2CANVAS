@@ -1,7 +1,6 @@
 # Photoshop Resize to Canvas or Document Size (Plugin UXP para Photoshop)
 <p align="center">
   <img src="assets/preview.png" width="280" alt="Interfaz del Plugin">
-  <img src="assets/demo.gif" width="400" alt="Demostración del Plugin">
 </p>
 
 ¡Un panel UXP para Adobe Photoshop completamente localizado y diseñado para reformatear y exportar sin problemas capas de píxeles, grupos, capas de texto y vectores al hacer coincidir de manera inteligente su tamaño de forma nativa con el lienzo de tu documento con un solo clic!
