@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.6] - 2026-03-03
+### Fixed
+- Replaced deprecated `sp-dropdown` with modern `sp-picker` to resolve Adobe UXP warnings in the debugger.
+
+
 ## [1.0.5] - 2026-03-03
 ### Added
 - Perfectly centered button texts vertically and horizontally.

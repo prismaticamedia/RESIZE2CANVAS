@@ -131,7 +131,7 @@
             style="display: flex; flex-direction: column; gap: var(--section-gap); width: 280px; padding: 4px;">
             <sp-heading size="S" data-l10n="newDocSize">New Document Size</sp-heading>
 
-            <sp-dropdown id="drpDialogSize" style="width: 100%;">
+            <sp-picker id="drpDialogSize" style="width: 100%;">
                 <sp-menu slot="options">
                     <sp-menu-item value="720">1280 x 720 (720p)</sp-menu-item>
                     <sp-menu-item value="1080" selected>1920 x 1080 (1080p)</sp-menu-item>
@@ -139,7 +139,7 @@
                     <sp-menu-item value="2160">3840 x 2160 (4K)</sp-menu-item>
                     <sp-menu-item value="custom" data-l10n="custom">Custom...</sp-menu-item>
                 </sp-menu>
-            </sp-dropdown>
+            </sp-picker>
 
             <div id="divCustomSize" class="row-spaced" style="display: none;">
                 <sp-textfield id="txtWidth" type="number" value="1920">
