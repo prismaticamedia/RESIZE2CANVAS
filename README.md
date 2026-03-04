@@ -7,6 +7,7 @@ A lightweight Adobe UXP panel plugin that adds quick resizing and formatting sho
 * **Auto-Rotate:** An option that triggers the layer to rotate by 90° natively if its AspectRatio formatting orientation (Portrait -> Landscape) conflicts with the canvas orientation prior to scaling.
 * **Send to New Document:** Duplicates the current layer out and exports it straight to a fresh artboard with multiple predefined streaming presets `(720p, 1080p, 4k)` and variable Custom Size injection.
 * **Quick Exports:** One-click shortcuts to rapidly export the active layer or doc as a transparent PNG.
+* **Smart Object Auto-Conversion:** Automatically converts Text, Shapes, and Groups into Smart Objects before scaling to preserve 100% of their original pixel quality without throwing errors.
 
 ## Usage
 Add to Photoshop using the UXP Developer Tool.
