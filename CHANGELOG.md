@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.5] - 2026-03-03
+### Added
+- Perfectly centered button texts vertically and horizontally.
+- Reverted Plugin ID to `Resize2canvas` (removed `_PS` suffix).
+
 ## [1.0.4] - 2026-03-03
 ### Added
 - Centered text alignment on all UI buttons.
