@@ -1,7 +1,18 @@
 const app = require("photoshop").app;
 const core = require("photoshop").core;
 const { executeAsModal } = require("photoshop").core;
+const { batchPlay } = require("photoshop").action;
 const fs = require("uxp").storage.localFileSystem;
+
+async function convertToSmartObject() {
+    await batchPlay(
+        [{
+            "_obj": "newPlacedLayer",
+            "_isCommand": true
+        }],
+        {}
+    );
+}
 
 const locales = {
     en: {
@@ -23,14 +34,14 @@ const locales = {
         layerAsPng: "Layer as PNG",
         docAsPng: "Doc as PNG",
         noDocOpen: "Please open a document first.",
-        noLayerSelected: "Please select a normal pixel layer or a smart object.",
+        noLayerSelected: "Please select a layer to resize or export.",
         errorPrefix: "Error: "
     },
     es: {
         canvasResize: "Redimensionar Lienzo",
         selectLayerInstruction: "Selecciona una capa",
         fitToCanvas: "Ajustar al Lienzo (Sin Recorte)",
-        fillCanvas: "Llenar Lienzo (Recortar)",
+        fillCanvas: "Rellenar",
         options: "Opciones",
         autoRotate: "Auto Rotar Imagen",
         artboardExtraction: "Extracción de Mesa de Trabajo",
@@ -45,7 +56,7 @@ const locales = {
         layerAsPng: "Capa como PNG",
         docAsPng: "Doc como PNG",
         noDocOpen: "Por favor abre un documento primero.",
-        noLayerSelected: "Por favor selecciona una capa de píxeles normal o un objeto inteligente.",
+        noLayerSelected: "Por favor selecciona una capa para redimensionar o exportar.",
         errorPrefix: "Error: "
     },
     fr: {
@@ -67,7 +78,7 @@ const locales = {
         layerAsPng: "Calque en PNG",
         docAsPng: "Doc en PNG",
         noDocOpen: "Veuillez d'abord ouvrir un document.",
-        noLayerSelected: "Veuillez sélectionner un calque de pixels normal ou un objet dynamique.",
+        noLayerSelected: "Veuillez sélectionner un calque pour redimensionner ou exporter.",
         errorPrefix: "Erreur : "
     },
     de: {
@@ -89,7 +100,7 @@ const locales = {
         layerAsPng: "Ebene als PNG",
         docAsPng: "Dok als PNG",
         noDocOpen: "Bitte öffnen Sie zuerst ein Dokument.",
-        noLayerSelected: "Bitte wählen Sie eine normale Pixelebene oder ein Smartobjekt.",
+        noLayerSelected: "Bitte wählen Sie eine Ebene zum Ändern der Größe oder zum Exportieren aus.",
         errorPrefix: "Fehler: "
     }
 };
@@ -246,8 +257,8 @@ async function handleExport(isEntireDoc) {
     const sourceDoc = app.activeDocument;
 
     if (!isEntireDoc) {
-        const layer = sourceDoc.activeLayers[0];
-        if (!layer || layer.isBackgroundLayer || (layer.kind !== "pixel" && layer.kind !== "smartObject")) {
+        let layer = sourceDoc.activeLayers[0];
+        if (!layer || layer.isBackgroundLayer) {
             await app.showAlert(i18n("noLayerSelected"));
             return;
         }
@@ -264,8 +275,15 @@ async function handleExport(isEntireDoc) {
             if (isEntireDoc) {
                 await sourceDoc.saveAs.png(file, { compression: 6 });
             } else {
+                // Auto-convert if it's not a pixel or smart object layer (e.g., text, shape, group)
+                let layer = sourceDoc.activeLayers[0];
+                if (layer.kind !== "pixel" && layer.kind !== "smartObject") {
+                    await convertToSmartObject();
+                    // Re-fetch the layer reference after conversion just in case
+                    layer = sourceDoc.activeLayers[0];
+                }
+
                 // To safely export layer without external dependencies, we isolate it in a new doc.
-                const layer = sourceDoc.activeLayers[0];
                 const newDoc = await app.createDocument();
                 await layer.duplicate(newDoc);
                 // Trim standard blank doc bg if present
@@ -290,7 +308,7 @@ async function handleResize(isCrop) {
 
     // Quick validate layer before triggering modal
     const layer = app.activeDocument.activeLayers[0];
-    if (!layer || layer.isBackgroundLayer || (layer.kind !== "pixel" && layer.kind !== "smartObject")) {
+    if (!layer || layer.isBackgroundLayer) {
         await app.showAlert(i18n("noLayerSelected"));
         return;
     }
@@ -315,7 +333,7 @@ async function handleNewDoc() {
 
     // Quick validate layer before triggering modal
     const layer = app.activeDocument.activeLayers[0];
-    if (!layer || layer.isBackgroundLayer || (layer.kind !== "pixel" && layer.kind !== "smartObject")) {
+    if (!layer || layer.isBackgroundLayer) {
         await app.showAlert(i18n("noLayerSelected"));
         return;
     }
@@ -334,10 +352,16 @@ async function handleNewDoc() {
 
 async function sendToNewDoc(autoRotate, targetSize) {
     const sourceDoc = app.activeDocument;
-    const layer = sourceDoc.activeLayers[0];
+    let layer = sourceDoc.activeLayers[0];
 
-    if (!layer || layer.isBackgroundLayer || (layer.kind !== "pixel" && layer.kind !== "smartObject")) {
-        throw new Error("Please select a normal pixel layer or a smart object.");
+    if (!layer || layer.isBackgroundLayer) {
+        throw new Error(i18n("noLayerSelected"));
+    }
+
+    // Auto-convert before duplicating over
+    if (layer.kind !== "pixel" && layer.kind !== "smartObject") {
+        await convertToSmartObject();
+        layer = sourceDoc.activeLayers[0];
     }
 
     // Create a new document (Defaults to 7x5 in at 300ppi if params are failing)
@@ -359,10 +383,16 @@ async function sendToNewDoc(autoRotate, targetSize) {
 
 async function fitLayerToCanvas(doc, crop, autoRotate) {
     try {
-        const layer = doc.activeLayers[0];
+        let layer = doc.activeLayers[0];
 
-        if (!layer || layer.isBackgroundLayer || (layer.kind !== "pixel" && layer.kind !== "smartObject")) {
-            throw new Error("Please select a normal pixel layer or a smart object.");
+        if (!layer || layer.isBackgroundLayer) {
+            throw new Error(i18n("noLayerSelected"));
+        }
+
+        // Auto-convert non-pixel/smart object layers
+        if (layer.kind !== "pixel" && layer.kind !== "smartObject") {
+            await convertToSmartObject();
+            layer = doc.activeLayers[0]; // refresh reference
         }
 
         const docWidth = doc.width;
