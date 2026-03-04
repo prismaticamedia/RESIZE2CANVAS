@@ -1,6 +1,7 @@
 # Photoshop Resize to Canvas (UXP Photoshop Plugin)
 <p align="center">
   <img src="assets/preview.png" width="280" alt="Plugin Interface">
+  <img src="assets/demo.gif" width="400" alt="Plugin Demo">
 </p>
 
 A fully localized Adobe Photoshop UXP panel designed to seamlessly reformat and export pixel layers, groups, text layers, and vectors by intelligently matching them natively to your Document's canvas footprint in one click!
