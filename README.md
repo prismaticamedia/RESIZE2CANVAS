@@ -1,4 +1,4 @@
-# Photoshop Resize to Canvas or Document Size (Plugin UXP para Photoshop)
+# Plugin para Photoshop que cambia el tamaño de la capa  al tamaño del documento (Plugin UXP para Photoshop)
 <p align="center">
   <img src="assets/preview.png" width="280" alt="Interfaz del Plugin">
 </p>
