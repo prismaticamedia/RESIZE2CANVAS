@@ -15,7 +15,10 @@
 <p align="center">
   <img src="assets/demo.gif" width="400" alt="Demostración del Plugin">
 </p>
-## Uso
-Da doble click  sobre el archivo ccx descargado, acepta los mensajes de advertencia.
 
-Abre photoshop y en el menú Plugins > Resize2Canvas da click sobre el nombre para abrir el panel.
+## Uso
+* **Da doble click  sobre el archivo ccx descargado, acepta los mensajes de advertencia.**
+
+* **Abre photoshop y en el menú Plugins > Resize2Canvas da click sobre el nombre para abrir el panel.**
+
+* **Selecciona una capa antes de usar las funciones del plugin.**
