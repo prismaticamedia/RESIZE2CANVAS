@@ -1,4 +1,4 @@
-# Photoshop Resize to Canvas (UXP Photoshop Plugin)
+# Photoshop Resize to Canvas or Document Size (UXP Photoshop Plugin)
 <p align="center">
   <img src="assets/preview.png" width="280" alt="Plugin Interface">
   <img src="assets/demo.gif" width="400" alt="Plugin Demo">
