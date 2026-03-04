@@ -3,7 +3,7 @@
   <img src="assets/preview.png" width="280" alt="Interfaz del Plugin">
 </p>
 
-¡Un panel UXP para Adobe Photoshop completamente localizado y diseñado para reformatear y exportar sin problemas capas de píxeles, grupos, capas de texto y vectores al hacer coincidir de manera inteligente su tamaño de forma nativa con el lienzo de tu documento con un solo clic!
+¡Un panel UXP para Adobe Photoshop completamente localizado y diseñado para reformatear y exportar sin problemas capas de píxeles, grupos, capas de texto y vectores al hacer coincidir de manera automatica el tamaño de forma nativa con el lienzo de tu documento con un solo clic!
 
 ## Características
 * **Ajustar al Lienzo:** Redimensiona la capa para que encaje por completo dentro de los límites del documento.
