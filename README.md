@@ -1,18 +1,18 @@
-# Photoshop Resize to Canvas or Document Size (UXP Photoshop Plugin)
+# Photoshop Resize to Canvas or Document Size (Plugin UXP para Photoshop)
 <p align="center">
-  <img src="assets/preview.png" width="280" alt="Plugin Interface">
-  <img src="assets/demo.gif" width="400" alt="Plugin Demo">
+  <img src="assets/preview.png" width="280" alt="Interfaz del Plugin">
+  <img src="assets/demo.gif" width="400" alt="Demostración del Plugin">
 </p>
 
-A fully localized Adobe Photoshop UXP panel designed to seamlessly reformat and export pixel layers, groups, text layers, and vectors by intelligently matching them natively to your Document's canvas footprint in one click!
+¡Un panel UXP para Adobe Photoshop completamente localizado y diseñado para reformatear y exportar sin problemas capas de píxeles, grupos, capas de texto y vectores al hacer coincidir de manera inteligente su tamaño de forma nativa con el lienzo de tu documento con un solo clic!
 
-## Features
-* **Fit (No Crop):** Resizes the layer to gracefully fit entirely inside the document bounds constraints.
-* **Fill (Crop):** Scales the layer perfectly edge-to-edge ignoring standard aspect borders, acting as a fill crop. 
-* **Auto-Rotate:** An option that triggers the layer to rotate by 90° natively if its AspectRatio formatting orientation (Portrait -> Landscape) conflicts with the canvas orientation prior to scaling.
-* **Send to New Document:** Duplicates the current layer out and exports it straight to a fresh artboard with multiple predefined streaming presets `(720p, 1080p, 4k)` and variable Custom Size injection.
-* **Quick Exports:** One-click shortcuts to rapidly export the active layer or doc as a transparent PNG.
-* **Smart Object Auto-Conversion:** Automatically converts Text, Shapes, and Groups into Smart Objects before scaling to preserve 100% of their original pixel quality without throwing errors.
+## Características
+* **Ajustar al Lienzo:** Redimensiona la capa para que encaje elegantemente por completo dentro de los límites del documento.
+* **Rellenar:** Escala la capa perfectamente de borde a borde ignorando la proporción estándar, actuando como un recorte de relleno.
+* **Auto Rotar Imagen:** Una opción que activa la rotación nativa de la capa en 90° si su orientación de formato (Vertical -> Horizontal) entra en conflicto con la orientación del lienzo antes de escalar.
+* **Enviar a Nuevo Documento:** Duplica la capa actual y la exporta directamente a un nuevo documento con múltiples ajustes preestablecidos `(720p, 1080p, 4K)` y la opción de definir un tamaño personalizado.
+* **Exportación Rápida a PNG:** Atajos de un solo clic para exportar rápidamente la capa activa o el documento completo como un PNG con fondo transparente.
+* **Auto-Conversión a Objeto Inteligente:** Convierte automáticamente Textos, Formas y Grupos en Objetos Inteligentes antes de cambiar el tamaño para conservar el 100% de la calidad original de los píxeles sin causar errores.
 
-## Usage
-Add to Photoshop using the UXP Developer Tool.
+## Uso
+Agrégalo a Photoshop utilizando el UXP Developer Tool.
