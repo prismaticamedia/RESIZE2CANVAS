@@ -1,5 +1,9 @@
-# Photoshop Resize To Canvas UXP Plugin
-A lightweight Adobe UXP panel plugin that adds quick resizing and formatting shortcuts for layers.
+# Photoshop# Resize to Canvas (UXP Photoshop Plugin)
+<p align="center">
+  <img src="assets/preview.png" width="280" alt="Plugin Interface">
+</p>
+
+A fully localized Adobe Photoshop UXP panel designed to seamlessly reformat and export pixel layers, groups, text layers, and vectors by intelligently matching them natively to your Document's canvas footprint in one click!
 
 ## Features
 * **Fit (No Crop):** Resizes the layer to gracefully fit entirely inside the document bounds constraints.
