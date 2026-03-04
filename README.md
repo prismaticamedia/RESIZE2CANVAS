@@ -13,6 +13,10 @@
 * **Enviar a Nuevo Documento:** Duplica la capa actual y la exporta directamente a un nuevo documento con múltiples ajustes preestablecidos `(720p, 1080p, 4K)` y la opción de definir un tamaño personalizado.
 * **Exportación Rápida a PNG:** Atajos de un solo clic para exportar rápidamente la capa activa o el documento completo como un PNG con fondo transparente.
 * **Auto-Conversión a Objeto Inteligente:** Convierte automáticamente Textos, Formas y Grupos en Objetos Inteligentes antes de cambiar el tamaño para conservar el 100% de la calidad original de los píxeles sin causar errores.
-
+<p align="center">
+  <img src="assets/demo.gif" width="400" alt="Demostración del Plugin">
+</p>
 ## Uso
-Agrégalo a Photoshop utilizando el UXP Developer Tool.
+Da doble click  sobre el archivo ccx descargado, acepta los mensajes de advertencia.
+
+Abre photoshop y en el menú Plugins > Resize2Canvas da click sobre el nombre para abrir el panel.
