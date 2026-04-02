@@ -1,0 +1,27 @@
+{
+  "name": "resize2canvas",
+  "version": "1.0.7",
+  "description": "Photoshop UXP plugin to resize, fit, or fill any layer to the document canvas with one click",
+  "keywords": [
+    "photoshop",
+    "uxp",
+    "plugin",
+    "resize",
+    "canvas",
+    "layer",
+    "adobe",
+    "creative-cloud",
+    "image-resize",
+    "smart-object",
+    "png-export",
+    "photoshop-plugin"
+  ],
+  "author": "prismaticamedia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prismaticamedia/RESIZE2CANVAS.git"
+  },
+  "homepage": "https://github.com/prismaticamedia/RESIZE2CANVAS",
+  "main": "index.js"
+}
